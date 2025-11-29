@@ -6,6 +6,7 @@ import GTPRac.Grat.Repository.RepositoryInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -23,6 +24,10 @@ public class EmployeeService {
     //get Employee by id
     public Optional<Employess> getEmployeeById(int id){
         return repo.findById(id);
+    }
+
+    public List<Employess> getAllEmployees() {
+        return repo.findAll();
     }
 
     //update Employee

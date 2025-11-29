@@ -4,6 +4,8 @@ import GTPRac.Grat.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -32,6 +34,11 @@ public class EmployeeController {
        }
     }
 
+    @GetMapping("/api/getAllEmployees")
+    public ResponseEntity<List<Employess>> getAllEmployee(){
+    return ResponseEntity.ok(serv.getAllEmployees());
+    }
+
     @PutMapping("/api/update")
     public ResponseEntity<String> updateEmployee(@RequestBody Employess emp){
         serv.updateEmployee(emp);
@@ -43,5 +50,6 @@ public class EmployeeController {
         serv.deleteEmpployee(id);
         return ResponseEntity.ok("Employee deleted successfully");
     }
+
 
 }
